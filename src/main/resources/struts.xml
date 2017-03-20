@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="language" />
+	
+	<package name="custom-default" extends="tiles-default">
+		<interceptors>
+			<interceptor class="com.gestdepo.controller.interceptors.LoginInterceptor" name="loginInterceptor" />
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>			
+		</interceptors>
+		
+		<action name="/" class="homeActionBean">
+	        <result name="success" type="redirect">homeAction</result>
+	    </action>
+	</package>
+	
+	<package name="login" extends="custom-default">
+		<!-- home link action -->
+		<action name="homeAction" class="loginActionBean" method="home">
+			<interceptor-ref name="loginStack" />
+			<result name="login" type="tiles">/tiles.homeLogout</result>
+			<result name="success" type="tiles">/tiles.homeLogin</result>
+			<result name="input" type="tiles">/tiles.homeLogout</result>
+		</action>
+		
+		<!-- login action -->
+		<action name="loginUser" class="loginActionBean" method="login">
+			<result name="success" type="redirect">homeAction</result>
+			<result name="error" type="tiles">/tiles.homeLogout</result>
+			<result name="input" type="tiles">/tiles.homeLogout</result>
+			<result name="login" type="tiles">/tiles.homeLogout</result>
+		</action>
+		
+		<!-- logout action -->
+		<action name="logOut" class="loginActionBean" method="logOut">
+			<result name="input" type="tiles">/tiles.homeLogout</result>
+			<result name="success" type="tiles">/tiles.homeLogout</result>
+		</action>
+		
+	</package>
+	
+	<include file="struts-account.xml" />
+	<include file="struts-season.xml" />
+	<include file="struts-events.xml" />
+	<include file="struts-exercise.xml" />
+	
+	<package name="tests" extends="custom-default">
+		<!-- login action -->
+		<action name="test" class="testActionBean" method="test">
+			<interceptor-ref name="loginStack"/>
+			<result name="login" type="tiles">/tiles.homeLogout</result>
+			<result name="success" type="tiles">/tiles.test</result>
+		</action>
+	</package>
+</struts>

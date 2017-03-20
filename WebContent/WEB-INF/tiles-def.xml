@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/Tiles/BaseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/Pages/Header.jsp" />
+		<put-attribute name="top" value="/Pages/Top.jsp" />
+		<put-attribute name="menu" value="/Pages/Menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/Pages/Footer.jsp" />
+	</definition>
+	
+	<definition name="/tiles.homeLogin" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/Pages/Home.jsp" />
+	</definition>
+	
+	<definition name="/tiles.homeLogout" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/Pages/index.jsp" />
+	</definition>
+	
+	<definition name="/tiles.new.user" extends="baseLayout">
+		<put-attribute name="title" value="New User" />
+		<put-attribute name="body" value="/Pages/User/newUserForm.jsp" />
+	</definition>
+	
+	<definition name="/tiles.manage.seasons" extends="baseLayout">
+		<put-attribute name="title" value="New User" />
+		<put-attribute name="body" value="/Pages/Season/manageSeasons.jsp" />
+	</definition>
+	
+	<definition name="/tiles.plan.seasons" extends="baseLayout">
+		<put-attribute name="title" value="Plan Season" />
+		<put-attribute name="body" value="/Pages/Season/detailSeason.jsp" />
+	</definition>
+	
+	<definition name="/tiles.manage.exercise" extends="baseLayout">
+		<put-attribute name="title" value="Manage Exercises" />
+		<put-attribute name="body" value="/Pages/Exercise/manageExercise.jsp" />
+	</definition>
+	
+	<definition name="/tiles.save.exercise" extends="baseLayout">
+		<put-attribute name="title" value="Save Exercise" />
+		<put-attribute name="body" value="/Pages/Exercise/saveExercise.jsp" />
+	</definition>
+	
+	<definition name="/tiles.test" extends="baseLayout">
+		<put-attribute name="title" value="Test Page" />
+		<put-attribute name="body" value="/Pages/test.jsp" />
+	</definition>
+</tiles-definitions>

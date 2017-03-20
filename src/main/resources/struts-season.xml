@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="season" extends="custom-default">
+		<action name="preSaveSeason" class="seasonManagementActionBean" method="preSaveSeason">
+			<result name="input" type="tiles">/tiles.manage.seasons</result>
+			<result name="error" type="tiles">/tiles.manage.seasons</result>
+			<result name="success" type="tiles">/tiles.manage.seasons</result>
+		</action>
+		
+		<action name="saveSeason" class="seasonManagementActionBean" method="saveSeason">
+			<result name="input" type="tiles">/tiles.manage.seasons</result>
+			<result name="error" type="tiles">/tiles.manage.seasons</result>
+			<result name="success" type="tiles">/tiles.manage.seasons</result>
+		</action>
+		
+		<action name="deleteSeason" class="seasonManagementActionBean" method="deleteSeason">
+			<result name="input" type="tiles">/tiles.manage.seasons</result>
+			<result name="error" type="tiles">/tiles.manage.seasons</result>
+			<result name="success" type="tiles">/tiles.manage.seasons</result>
+		</action>
+		
+		<action name="planSeason" class="seasonDetailActionBean" method="planSeason">
+			<result name="input" type="tiles">/tiles.plan.seasons</result>
+			<result name="error" type="tiles">/tiles.plan.seasons</result>
+			<result name="success" type="tiles">/tiles.plan.seasons</result>
+		</action>
+	</package>
+	
+</struts>
